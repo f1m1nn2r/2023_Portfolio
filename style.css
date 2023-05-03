@@ -1,0 +1,309 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  padding-top: 55px;
+  background: #eee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+header {
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  background: #eee;
+  border: 1px solid #000;
+  border-left: 0;
+  border-right: 0;
+}
+header .header_inner {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+header .header_inner > div {
+  line-height: 1;
+}
+header .header_inner .fir {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding: 0 10px 1px 10px;
+  background: #000;
+}
+header .header_inner .fir p, header .header_inner .fir span {
+  font-size: 1.05vw;
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+}
+header .header_inner .fir p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header .header_inner .fir p:first-child {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+header .header_inner .fir p:last-child {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header .header_inner .fir p:last-child span {
+  width: 60px;
+  height: 16px;
+  line-height: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border: 2px solid #fff;
+  border-right: 0;
+}
+header .header_inner .fir p:last-child span::before {
+  content: "";
+  width: 15px;
+  height: 2px;
+  position: absolute;
+  background-color: #fff;
+}
+header .header_inner .info_comm p, header .header_inner .info_comm span {
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -1px;
+}
+header .header_inner .info_comm span {
+  font-size: 0.7vw;
+  color: #487C20;
+}
+header .header_inner .info_comm p {
+  padding: 5px 0 0 0;
+  font-size: 0.92vw;
+}
+header .header_inner .last {
+  font-size: 0.85vw;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  letter-spacing: -1px;
+}
+
+.footer-section {
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  position: fixed;
+  bottom: 0;
+  background: #eee;
+  border: 1px solid #000;
+  border-left: 0;
+  border-right: 0;
+}
+.footer-section .footer-inner {
+  padding: 0 0 0 1vw;
+}
+.footer-section .footer-inner .fir {
+  font-size: 0.85vw;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  letter-spacing: -1px;
+}
+
+/*** 섹션01 시작 ***/
+.section01 {
+  height: calc(100vh - 110px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  padding: 1vw 1.5vw 1vw 1.5vw;
+}
+.section01 .circle {
+  width: 40.366vw;
+  height: 40.366vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #000;
+  border-radius: 50%;
+}
+.section01 .circle span {
+  width: 0.81vw;
+  height: 0.81vw;
+  display: block;
+  background: #fff;
+  border-radius: 50%;
+}
+.section01 .sc01_div {
+  width: 48vw;
+  /*flex:1;*/
+}
+.section01 .sc01_comm h1 {
+  line-height: 0.9;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  mix-blend-mode: difference;
+  font-size: 9.688vw;
+  font-weight: bold;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+}
+.section01 .menu-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin: 4.6vw 0 0 0;
+}
+.section01 .menu-box li {
+  position: relative;
+  padding: 10px 0;
+  counter-increment: li-counter;
+  border-bottom: 1px solid #000;
+}
+.section01 .menu-box li a {
+  font-size: 1.3vw;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
+  letter-spacing: -1px;
+}
+.section01 .menu-box li::before {
+  content: counter(li-counter, decimal-leading-zero);
+  margin-right: 15px;
+  font-size: 1.3vw;
+  font-weight: 400;
+  font-family: inherit;
+  color: #000;
+  letter-spacing: -1px;
+}
+.section01 .menu-box li:first-child, .section01 .menu-box li:nth-child(2) {
+  width: calc(100% - 395px);
+}
+.section01 .menu-box li:nth-child(3) {
+  width: calc(100% - 385px);
+}
+.section01 .menu-box li:last-child {
+  width: calc(100% - 355px);
+}
+.section01 .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.section01 .right h1 {
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+
+/*** 섹션01 끝 ***/
+/*** 섹션02 시작 ***/
+.section02 {
+  height: calc(100vh - 55px);
+}
+.section02-inner {
+  height: 100%;
+}
+.section02-inner .RL-comm {
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+.section02-inner .RL-comm h1 {
+  line-height: 1;
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 24vw;
+  font-weight: 600;
+  font-family: "Oswald", sans-serif;
+  color: #eee;
+  letter-spacing: -0.7vw;
+}
+.section02-inner .RL-comm.L-scroll h1 {
+  padding: 0 0 40px 0;
+  background: #000;
+  color: #487C20;
+}
+.section02-inner .RL-comm.R-scroll h1 {
+  -webkit-transform: translateY(-50%) scale(-1);
+          transform: translateY(-50%) scale(-1);
+  padding: 0 0 50px 0;
+  -webkit-text-stroke: 1px #000;
+}
+
+/*** 섹션02 끝 ***/
+/*** 섹션03 시작 ***/
+.section03 {
+  height: calc(100vh - 55px);
+}
+.section03-inner {
+  height: 100%;
+}
