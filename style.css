@@ -3,7 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 body {
-  padding-top: 55px;
+  padding: 55px 0 0 0;
+  overflow-x: hidden;
   background: #eee;
 }
 
@@ -63,7 +64,7 @@ header .header_inner .fir {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  padding: 0 10px 1px 10px;
+  padding: 0 10px 0px 10px;
   background: #000;
 }
 header .header_inner .fir p, header .header_inner .fir span {
@@ -152,6 +153,79 @@ header .header_inner .last {
   font-family: "Montserrat", sans-serif;
   color: #000;
   letter-spacing: -1px;
+}
+
+.area01 {
+  position: relative;
+}
+.area01 .circle-wrap.float {
+  width: 100%;
+  position: sticky;
+  top: -100%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.area01 .circle-wrap.float .circle {
+  width: 37vw;
+  height: 37vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #000;
+  border-radius: 50%;
+}
+.area01 .circle-wrap.float .circle span {
+  width: 0.81vw;
+  height: 0.81vw;
+  display: block;
+  background: #fff;
+  border-radius: 50%;
+}
+.area01 .circle-wrap.float .line-circle-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.area01 .circle-wrap.float .line-circle-wrap > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.area01 .circle-wrap.float .line-circle-wrap .line-circle-basic {
+  opacity: 0.15;
+  background: url(./img/Ellipse6.svg) center no-repeat;
+  background-size: 80%;
+}
+.area01 .circle-wrap.float .line-circle-wrap .line-circle-overlay {
+  opacity: 1;
+  mix-blend-mode: overlay;
+  background: url(./img/Ellipse6.svg) center no-repeat;
+  background-size: 80%;
+}
+.area01 .circle-wrap.float .line-circle-wrap .line-circle-exposure {
+  z-index: -1;
+  background: #eee;
+}
+.area01 .circle-wrap.float.sticky {
+  height: 100vh;
+  top: 0;
+  opacity: 1;
+  visibility: visible;
 }
 
 /*** 섹션01 시작 ***/
@@ -302,8 +376,230 @@ header .header_inner .last {
 /*** 섹션02 끝 ***/
 /*** 섹션03 시작 ***/
 .section03 {
-  height: calc(100vh - 55px);
+  height: 790vh;
+  position: relative;
+  padding: 30vw 0 0 0;
+}
+.section03 .circle-wrap {
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: url(./img/Ellipse6.png) center no-repeat;
+  background-size: 80%;
+}
+.section03 .circle-wrap .circle {
+  width: 40.366vw;
+  height: 40.366vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin: 0 auto;
+  background: #000;
+  border-radius: 50%;
+}
+.section03 .circle-wrap .circle span {
+  width: 0.81vw;
+  height: 0.81vw;
+  display: block;
+  background: #eee;
+  border-radius: 50%;
 }
 .section03-inner {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.section03-inner > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  mix-blend-mode: difference;
+  color: #eee;
+}
+.section03-inner > div .txt-wrap {
+  height: 140vh;
+  position: sticky;
+  top: 3vw;
+}
+.section03-inner > div .txt-wrap .txt-inner {
+  height: 100%;
+}
+.section03-inner > div .txt-wrap .txt-inner h5 {
+  line-height: 1.3;
+  font-size: 1.5vw;
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__1 {
+  margin: 0 auto;
+  margin-left: -0.5vw;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__1 .txt-inner {
+  height: calc(100% - 146px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.3vw 0 0 0;
+  font-size: 4.6vw;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__1 .txt-inner .line {
+  width: 0.7vw;
+  margin: 1vw 0.5vw 1vw 0;
+  background: #eee;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 10vw;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__2 .txt-inner {
+  text-transform: uppercase;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__2 .txt-inner h1 {
+  line-height: 1;
+  font-size: 10.3vw;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  line-height: 0.83;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__3 {
+  margin: 0 auto;
+  margin-right: 0;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__3 .txt-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-transform: uppercase;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__3 .txt-inner h1 {
+  line-height: 1;
+  font-size: 10.3vw;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__3 .txt-inner .x {
+  width: 4vw;
+  height: 4vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__3 .txt-inner .x span {
+  width: 100%;
+  height: 0.87vw;
+  display: block;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  position: absolute;
+  background: #487C20;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__3 .txt-inner .x span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__4 {
+  top: 3.3vw;
+}
+.section03-inner > div .txt-wrap.sc01-txt-wrap__5 .txt-inner {
+  height: calc(100vh - 126px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+/*** 섹션03 끝 ***/
+/*** 섹션04 시작 ***/
+.section04-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.section04-inner > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.section04-inner .left-column ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  counter-increment: li-counter;
+}
+.section04-inner .left-column ul li span {
+  width: 8vw;
+  display: block;
+  font-size: 0.84vw;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  color: #000;
+}
+.section04-inner .left-column ul li p {
+  width: calc(100% - 8vw);
+  font-size: 0.84vw;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+.section04-inner .left-column ul li::before {
+  content: counter(li-counter, decimal-leading-zero);
+  width: 1.3vw;
+  height: 1.3vw;
+  line-height: 1.3vw;
+  margin: 0 0.5vw 0 0;
+  font-size: 0.7vw;
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+  color: #eee;
+  background: #000;
+  border-radius: 50%;
+  text-align: center;
 }
