@@ -23,7 +23,7 @@ a{text-decoration:none; color:$black;}
 
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
-header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; background:$basic; border:1px solid $black; border-left:0; border-right:0;
+header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all .5s $easing;
     .header_inner{@include conSize(100%, 100%, null); @include dis-flex(center, space-between, null, null);
         & > div{line-height:1;}
         .fir{@include conSize(null, 100%, null); @include dis-flex(null, center, column, null); padding:0 10px 0px 10px; background:$black;
@@ -44,12 +44,14 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
         }
         .last{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;}
     }
+    &.no-exposure{top:-5vw}
 }
 
-.footer-section{@include conSize(100%, 55px, 55px); position:fixed; bottom:0; background:$basic; border:1px solid $black; border-left:0; border-right:0;
+.footer-section{@include conSize(100%, 55px, 55px); position:fixed; bottom:0; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all .5s $easing;
     .footer-inner{padding:0 0 0 1vw;
         .fir{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;}
     }
+    &.no-exposure{bottom:-5vw;}
 }
 
 .area01{position:relative;

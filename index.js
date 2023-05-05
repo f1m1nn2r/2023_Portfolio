@@ -15,6 +15,7 @@ $("html").easeScroll({
     arrowScroll: 10
 });
 
+
 // 섹션01
 const section01 = document.querySelector('.section01');
 
@@ -35,15 +36,24 @@ const circle = document.querySelector('.float');
 const circle_exposure = document.querySelector('.line-circle-exposure');
 const section04 = document.querySelector('.section04');
 window.addEventListener('scroll', function(){
+    // 헤더, 풋터 - 섹션03 도달 시 노출 안 되도록
+    const header = document.querySelector('header');
+    const footer = document.querySelector('.footer-section');
+
     var windowY = window.scrollY;
     var circleValue = windowY / 100 - 16;
+
     if(windowY >= section03.offsetTop / 1.2){
         circle.classList.add('sticky');
         circle_exposure.style.transform = `translate3d(${circleValue}vw, 0, 0)`; // circle 배경 라인 노출
-    }else if(windowY >= section04.offsetTop / 1.2){ // circle 섹션04 이전에 sticky 클래스 삭제 <<<<< 동작 안 되고 있음
+        header.classList.add('no-exposure');
+        footer.classList.add('no-exposure');
+    }//else if(windowY >= section04.offsetTop / 1.2){ // circle 섹션04 이전에 sticky 클래스 삭제 <<<<< 동작 안 되고 있음
+        //circle.classList.remove('sticky');}
+    else{
         circle.classList.remove('sticky');
-    }else{
-        circle.classList.remove('sticky');
+        header.classList.remove('no-exposure');
+        footer.classList.remove('no-exposure');
     }
 });
 
