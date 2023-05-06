@@ -673,3 +673,57 @@ header.no-exposure {
 }
 
 /*** 섹션05 끝 ***/
+/*** 섹션06 시작 ***/
+.section06 {
+  padding: 30vw 0 0 0;
+  background: #000;
+}
+.section06-inner {
+  padding: 0 0 0 6vw;
+}
+.section06-inner ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: relative;
+  padding: 2vw 0;
+  counter-increment: li-counter;
+  font-size: 8vw;
+  font-weight: 300;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #eee;
+  border-bottom: 1px solid #eee;
+  -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.section06-inner ul li h1 {
+  line-height: 1;
+  font-size: 8vw;
+  font-weight: 300;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #eee;
+}
+.section06-inner ul li p {
+  margin: 2vw 0 0 0;
+  font-size: 2vw;
+}
+.section06-inner ul li::before {
+  content: counter(li-counter, decimal-leading-zero);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+/*** 섹션06 끝 ***/

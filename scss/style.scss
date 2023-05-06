@@ -185,3 +185,17 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
     }
 }
 /*** 섹션05 끝 ***/
+
+/*** 섹션06 시작 ***/
+.section06{padding:30vw 0 0 0; background:$black;
+    &-inner{padding:0 0 0 6vw;
+        ul{
+            li{@include dis-flex(flex-end, flex-end, column, null); position:relative; padding:2vw 0; counter-increment:li-counter; @include font(8vw, 300, $noto, $basic); border-bottom:1px solid $basic; transition:all .3s $easing;
+                h1{line-height:1; @include font(8vw, 300, $noto, $basic);}
+                p{margin:2vw 0 0 0; font-size:2vw;}
+                &::before{content:counter(li-counter, decimal-leading-zero); @include pt-abs(50%, null, null, 0, null); transform:translateY(-50%);}
+            }
+        }
+    }
+}
+/*** 섹션06 끝 ***/
