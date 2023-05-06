@@ -19,7 +19,20 @@ a{text-decoration:none; color:$black;}
 @mixin dis-grid($num1:null, $num2:null){display:grid; grid-template-columns:repeat($num1, $num2 + #{fr});}
 @mixin pt-abs($top:null, $rg:null, $bt:null, $lf:null, $zd:null){position:absolute; top:$top; right:$rg; bottom:$bt; left:$lf; z-index:$zd;}
 @mixin font($fs:null, $fw:null, $ff:null, $co:null){font-size:$fs; font-weight:$fw; font-family:$ff; color:$co;}
-@mixin b_txt(){line-height:1; @include font(10.3vw, 700, $ows, null);}
+@mixin b_txt(){line-height:1; @include font(11.5vw, 700, $ows, null);}
+@mixin RL-Comm(){@include conSize(null, calc(100vh - 55px), null); overflow:hidden;
+    &-inner{@include conSize(null, 100%, null);
+        .RL-comm{@include conSize(null, 50%, null); @include dis-flex(null, null, null, null); position:relative;
+            h1{line-height:1; white-space:nowrap; @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;}
+            &.L-scroll{
+                h1{padding:0 0 1.5vw 0; background:$black; color:$point;}
+            }
+            &.R-scroll{
+                h1{transform:translateY(-50%) scale(-1); padding:0 0 1vw 0; -webkit-text-stroke:1px $black;}
+            }
+        }
+    }
+}
 
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
@@ -59,7 +72,7 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
         .circle{@include conSize(37vw, 37vw, null); @include dis-flex(center, center, null, null); position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:$black; border-radius:50%;
             span{@include conSize(0.81vw, 0.81vw, null); display:block; background:#fff; border-radius:50%;}
         }
-        .line-circle-wrap{@include conSize(100%, 100%, null); position:relative;
+        .line-circle-wrap{@include conSize(100%, 100%, null); position:relative; overflow:hidden;
             & > div{@include conSize(100%, 100%, null); @include pt-abs(0, null, null, 0, null);} 
             .line-circle-basic{opacity:.15; background:url(./img/Ellipse6.svg) center no-repeat; background-size:80%; }
             .line-circle-overlay{opacity:1; mix-blend-mode:overlay; background:url(./img/Ellipse6.svg) center no-repeat; background-size:80%;}
@@ -93,40 +106,24 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
 /*** 섹션01 끝 ***/
 
 /*** 섹션02 시작 ***/
-.section02{@include conSize(null, calc(100vh - 55px), null); 
-    &-inner{@include conSize(null, 100%, null);
-        .RL-comm{@include conSize(null, 50%, null); @include dis-flex(null, null, null, null); position:relative;
-            h1{line-height:1; white-space:nowrap; @include pt-abs(50%, null, null, null, null); transform:translateY(-50%); @include font(24vw, 600, $ows, $basic); letter-spacing:-0.7vw;}
-            &.L-scroll{
-                h1{padding:0 0 40px 0; background:$black; color:$point;}
-            }
-            &.R-scroll{
-                h1{transform:translateY(-50%) scale(-1); padding:0 0 50px 0; -webkit-text-stroke:1px $black;}
-            }
-        }
-    }
-}
+.section02{@include RL-Comm(); height:150vh;}
 /*** 섹션02 끝 ***/
 
 /*** 섹션03 시작 ***/
-.section03{@include conSize(null, 790vh, null); position:relative; padding:30vw 0 0 0;
-    .circle-wrap{@include conSize(100%, 100vh, null); position:sticky; top:0; background:url(./img/Ellipse6.png) center no-repeat; background-size:80%;
-        .circle{@include conSize(40.366vw, 40.366vw, null); @include dis-flex(center, center, null, null); @include pt-abs(50%, null, null, 50%, null); transform:translate(-50%, -50%); margin:0 auto; background:$black; border-radius:50%;
-            span{@include conSize(0.81vw, 0.81vw, null); display:block; background:$basic; border-radius:50%;}
-        }
-    }
+.section03{@include conSize(null, 790vh, null); position:relative; padding:30vw 0 0 0; transition:border .3s $easing; transition-delay:.2s;
+    //.fake_margin{@include conSize(100%, 140vh, null);}
     &-inner{@include conSize(null, 100%, null); @include dis-flex(null, null, null, null);
         & > div{flex:1; position:relative; mix-blend-mode:difference; color:$basic;
-            .txt-wrap{@include conSize(null, 140vh, null); position:sticky; top:3vw;
+            .txt-wrap{@include conSize(null, 140vh, null); position:sticky; top:0;
                 .txt-inner{@include conSize(null, 100%, null);
                     h5{line-height:1.3; @include font(1.5vw, 500, $ows, null);}
                 }
                 &.sc01-txt-wrap__1{margin:0 auto; margin-left:-0.5vw; writing-mode:vertical-lr;
-                    .txt-inner{@include conSize(null, calc(100% - 146px), null); @include dis-flex(center, null, null, null); padding:0.3vw 0 0 0; @include font(4.6vw, 700, $ows, null);
+                    .txt-inner{@include conSize(null, calc(100% - 146px), null); @include dis-flex(center, null, null, null); padding:0.3vw 0 0 0; @include font(6vw, 700, $ows, null);
                         .line{@include conSize(0.7vw, null, null); margin:1vw 0.5vw 1vw 0; background:$basic;}
                     }
                 }
-                &.sc01-txt-wrap__2{@include dis-flex(null, flex-end, null, null); margin-right:10vw;
+                &.sc01-txt-wrap__2{@include dis-flex(null, flex-end, null, null); margin-right:11.5vw;
                     .txt-inner{text-transform:uppercase;
                         h1{@include b_txt(); line-height:0.83;}
                     }
@@ -141,29 +138,44 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
                         }
                     }
                 }
-                &.sc01-txt-wrap__4{top:3.3vw;}
+                &.sc01-txt-wrap__4{top:0.5vw;}
                 &.sc01-txt-wrap__5{
-                    .txt-inner{@include conSize(null, calc(100vh - 126px), null); @include dis-flex(null, flex-end, column, null);}
+                    .txt-inner{@include conSize(null, calc(100vh - 26px), null); @include dis-flex(null, flex-end, column, null);}
                 }
             }
         }
     }
+    &.border{border:3vw solid $point; border-top:0;}
 }
 /*** 섹션03 끝 ***/
 
 .area02{}
 /*** 섹션04 시작 ***/
-.section04{
-    &-inner{@include dis-flex(null, null, null, null);
-        & > div{flex:1;}
+.section04{padding:1.5vw 3vw; background:$point; border-top:1px solid $black;
+    &-inner{@include dis-flex(center, space-between, null, null);
         .left-column{
-            ul{
+            ul{@include dis-grid(2, 1); row-gap:0.3vw;
                 li{@include dis-flex(flex-start, null, null, null); position:relative; counter-increment:li-counter;
-                    span{@include conSize(8vw, null, null); display:block; @include font(0.84vw, 700, $ows, $black);}
-                    p{@include conSize(calc(100% - 8vw), null, null); @include font(0.84vw, 400, $noto, $black); letter-spacing:-0.5px;}
+                    span{@include conSize(10vw, null, null); display:block; @include font(0.84vw, 700, $ows, $black);}
+                    p{@include conSize(calc(100% - 10vw), null, null); @include font(0.84vw, 400, $noto, $black); letter-spacing:-0.5px;}
                     &::before{content:counter(li-counter, decimal-leading-zero); @include conSize(1.3vw, 1.3vw, 1.3vw); margin:0 0.5vw 0 0; @include font(0.7vw, 500, $ows, $basic); background:$black; border-radius:50%; text-align:center;}
                 }
             }
         }
+        .right-column{
+            .circle-wrap{display:-webkit-box;
+                .circle{@include conSize(5vw, 5vw, null); display:-webkit-box; border:1px solid $black; border-radius:50%;
+                    &.tall{@include conSize(12.5vw, null, null); border-radius:3vw;}
+                }
+            }
+            .txt-wrap{
+                h1{@include b_txt(); font-size:7.4vw; text-transform:uppercase;}
+            }
+        }
     }
 }
+/*** 섹션04 끝 ***/
+
+/*** 섹션05 시작 ***/
+.section05{@include RL-Comm;}
+/*** 섹션05 끝 ***/
