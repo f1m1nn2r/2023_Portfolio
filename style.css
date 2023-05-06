@@ -668,5 +668,8 @@ header.no-exposure {
   padding: 0 0 1vw 0;
   -webkit-text-stroke: 1px #000;
 }
+.section05-inner .R-scroll h1 {
+  margin-left: -60vw;
+}
 
 /*** 섹션05 끝 ***/

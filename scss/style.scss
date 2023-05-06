@@ -177,5 +177,11 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
 /*** 섹션04 끝 ***/
 
 /*** 섹션05 시작 ***/
-.section05{@include RL-Comm;}
+.section05{@include RL-Comm;
+    &-inner{
+        .R-scroll{
+            h1{margin-left:-60vw;}
+        }
+    }
+}
 /*** 섹션05 끝 ***/
