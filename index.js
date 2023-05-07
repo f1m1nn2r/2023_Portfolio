@@ -52,6 +52,26 @@ for(var i=0; i<sc05_RLScroll_comm.length; i++){
 }
 section05.style.height = sc05_heightSum/10 + 'vh';
 
+// 섹션06
+const workSection = document.querySelector('.work-section');
+const workSectionWrap = document.querySelector('.work-img-wrap');
+for(var i=1; i<11; i++){
+    const workDiv = document.createElement('div'); // div 태그 생성
+    workDiv.setAttribute('class', 'work-img-slide'); // 해당 div 클래스명은 work-img-slide
+    //workSectionWrap.appendChild(workDiv); // work-img-wrap 태그 안에 work-img-slide 삽입
+}
+
+const workImgSlide = document.querySelectorAll('.work-img-slide');
+const workImg = document.createElement('img');
+var workImgArray = new Array();
+for(var i=0; i<workImgSlide.length; i++){
+    workImgArray[i] = new Image();
+    workImgArray[i].src = `./img/work-img-0${i + 1}.png`;
+    workImg.src = workImgArray[i].src;
+
+    workImgSlide[i].append(workImgArray[i]);
+}
+
 window.addEventListener('scroll', function(){
     var windowY = window.scrollY;
     // 헤더, 풋터 - 전체 스크롤 값이 섹션03의 (스크롤 값+500) 값과 같거나 커질 경우 노출 안 되도록
