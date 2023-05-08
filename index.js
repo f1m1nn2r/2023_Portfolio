@@ -22,8 +22,8 @@ const sc02_RLScroll_comm = document.querySelectorAll('.section02 .RL-comm');
 const sc02_RLScroll_comm_txt = document.querySelectorAll('.section02 .RL-comm h1'); 
 var heightSum = 0;
 for (var i = 0; i < sc02_RLScroll_comm.length; i++) { 
-    sc02_RLScroll_comm[i].style.height = sc02_RLScroll_comm_txt[i].clientHeight / 10 + 'vh'; // RL-comm의 height 값이 h1의 높이값과 동일하도록
-    heightSum += sc02_RLScroll_comm_txt[i].clientHeight;
+    sc02_RLScroll_comm[i].style.height = sc02_RLScroll_comm_txt[i].scrollHeight / 10 + 'vh'; // RL-comm의 height 값이 h1의 높이값과 동일하도록
+    heightSum += sc02_RLScroll_comm_txt[i].scrollHeight;
 }
 section02.style.height = heightSum/10 + 'vh';
 
@@ -47,12 +47,13 @@ const sc05_RLScroll_comm = document.querySelectorAll('.section05 .RL-comm');
 const sc05_RLScroll_comm_txt = document.querySelectorAll('.section05 .RL-comm h1');
 var sc05_heightSum = 0;
 for(var i=0; i<sc05_RLScroll_comm.length; i++){
-    sc05_RLScroll_comm[i].style.height = sc05_RLScroll_comm_txt[i].clientHeight/10 + 'vh';
-    sc05_heightSum += sc05_RLScroll_comm_txt[i].clientHeight;
+    sc05_RLScroll_comm[i].style.height = sc05_RLScroll_comm_txt[i].scrollHeight/10 + 'vh';
+    sc05_heightSum += sc05_RLScroll_comm_txt[i].scrollHeight;
 }
 section05.style.height = sc05_heightSum/10 + 'vh';
 
 // 섹션06
+
 const workSection = document.querySelector('.work-section');
 const workSectionWrap = document.querySelector('.work-img-wrap');
 for(var i=1; i<11; i++){
@@ -60,7 +61,6 @@ for(var i=1; i<11; i++){
     workDiv.setAttribute('class', 'work-img-slide'); // 해당 div 클래스명은 work-img-slide
     //workSectionWrap.appendChild(workDiv); // work-img-wrap 태그 안에 work-img-slide 삽입
 }
-
 const workImgSlide = document.querySelectorAll('.work-img-slide');
 const workImg = document.createElement('img');
 var workImgArray = new Array();

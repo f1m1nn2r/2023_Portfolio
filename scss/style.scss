@@ -205,7 +205,7 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
     }
     &-inner{padding:0 0 0 6vw;
         ul{
-            li{ position:relative; padding:2vw 0; counter-increment:li-counter; @include font(8vw, 300, $noto, $basic); border-bottom:1px solid $basic; transition:all .3s $easing;
+            li{position:relative; padding:2vw 0; counter-increment:li-counter; @include font(8vw, 300, $noto, $basic); border-bottom:1px solid $basic; //transition:all .3s $easing;
                 a{@include dis-flex(flex-end, flex-end, column, null); @include font(8vw, 300, $noto, $basic);}
                 h1{line-height:1; @include font(8vw, 300, $noto, $basic);}
                 p{margin:2vw 0 0 0; font-size:2vw;}
