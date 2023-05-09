@@ -127,7 +127,7 @@ window.addEventListener('scroll', function(){
     const circle_exposure = document.querySelector('.line-circle-exposure');
     var circleValue = (windowY / 100) - 16;
     // +500은 섹션02 넘어갈 때 height 값을 100vh로 설정하는 sticky 클래스 때문인지 스크롤 동작이 제대로 안 돼서 추가함
-    if(windowY >= section03.offsetTop + 500){
+    if(window.scrollY >= section03.offsetTop + 500){
         circle.classList.add('sticky'); // sticky 클래스 추가
         circle_exposure.style.transform = `translate3d(${circleValue}vw, 0, 0)`; // circle 배경 라인 노출되도록
         section03.classList.add('border'); // 섹션03일 시 좌 우 하단 border 추가
@@ -141,15 +141,15 @@ window.addEventListener('scroll', function(){
     for(var i=0; i<sc05_RLScroll_comm.length; i++){
         if(window.scrollY >= section05.offsetTop / 1.3){
             if(i % 2 == 0){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10 }vw, 0, 0) translateY(-50%)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%)`
             }else if(i % 2 == 1){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10 }vw, 0, 0) translateY(-50%) scale(-1)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%) scale(-1)`
             }
         }else{
             if(i % 2 == 0){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight }vw, 0, 0) translateY(-50%)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%)`
             }else if(i % 2 == 1){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight}vw, 0, 0) translateY(-50%) scale(-1)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%) scale(-1)`
             }
         }
     }
@@ -161,7 +161,7 @@ window.addEventListener('scroll', function(){
     for(var i=0; i<sc06_li.length; i++){
         sc06_li[i].style.opacity = '0.1';
         workImgSlide[i].style.display = 'none';
-        var opacityValue = 0.2 + (window.scrollY / document.documentElement.scrollHeight); 
+        var opacityValue = 0.6 + (window.scrollY / document.documentElement.scrollHeight); 
 
         if(sc06_li[i].getBoundingClientRect().top < window.innerHeight / 2){ // 화면 중앙 탐지
             sc06_li[i].style.opacity = opacityValue;
@@ -172,16 +172,26 @@ window.addEventListener('scroll', function(){
         }
     }
 
+    // 섹션07
     const bgCircle = document.querySelector('.bg-circle span');
     bgCircle.style.width = '10vw';
     bgCircle.style.height = '10vw';
 
     const sc07ScrollTxt = document.querySelector('.section07 .txt-wrap h1');
-    if(window.scrollY >= section07.offsetTop + 300){
+    if(windowY >= section07.offsetTop + 300){
         bgCircle.style.width = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 3}vw`;
         bgCircle.style.height = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 3}vw`;
 
-        var lastValue = -window.scrollY / header.offsetHeight;
-        sc07ScrollTxt.style.transform = `translate3d(${lastValue + 387}vw, 0, 0) translate(-50%, -50%)`
+        var lastValue = -window.scrollY / (header.offsetHeight/2);
+        sc07ScrollTxt.style.transform = `translate3d(${lastValue + 900}vw, 0, 0) translate(-50%, -50%)`;
     }
+
+    // 섹션08
+    /*
+    const last_area = document.querySelector('.area03');
+    const section08 = document.querySelector('.section08');
+    if(windowY >= last_area.offsetTop / 1.2){
+        section08.style.transform = `translate3d(0, -${window.scrollY / sc07ScrollTxt.offsetHeight}vw, 0)`
+    }
+    */
 });

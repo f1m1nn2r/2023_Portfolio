@@ -27,7 +27,9 @@ a{text-decoration:none; color:$black;}
     &-inner{@include conSize(null, 100%, null);
         .RL-comm{@include conSize(null, 50%, null); @include dis-flex(null, null, null, null); position:relative; background:$black;
             &-inner{@include conSize(null, 100%, null);
-                h1{@include conSize(null, auto, 1); white-space:nowrap; @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;}
+                h1{@include conSize(null, auto, 1); @include dis-flex(center, null, null, null); @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); white-space:nowrap; @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;
+                    span{display:block;}
+                }
             }
             &.L-scroll{
                 h1{padding:0 0 1.5vw 0; background:$black; color:$point;}
@@ -217,7 +219,7 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
 
 /*** 섹션06 시작 ***/
 .section06{position:relative; padding:0 0 60vw 0; background:$black;
-    .work-img-container{@include conSize(null, 100vh, null); position:sticky; top:0;
+    .work-img-container{@include conSize(null, 100vh, null); position:sticky; top:0; opacity:0; visibility:hidden;
         .work-img-wrap{@include conSize(100%, 100%, null); @include dis-flex(center, center, null, null); position:relative;
             .work-img-slide{@include conSize(100%, 100%, null); @include pt-abs(null, null, null, null, null); filter:brightness(.3);
                 img{@include conSize(100%, 100%, null); object-fit:cover;}
@@ -242,15 +244,32 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
 /*** 섹션06 끝 ***/
 
 /*** 섹션07 시작 **/
-.section07{@include conSize(null, 700vh, null); position:relative; background:$black;
-    .bg-circle{@include conSize(100%, 100vh, null); position:sticky; top:0;
+.section07{@include conSize(null, 1000vh, null); position:relative; background:$black;
+    .bg-circle{@include conSize(100%, 100vh, null); position:sticky; top:0; overflow:hidden;
         span{@include conSize(18vw, 18vw, null); @include pt-abs(50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$point; border-radius:50%; transition:all .3s linear;}
     }
     &-inner{@include conSize(200vw, null, null); @include dis-flex(center, null, null); position:sticky; top:0; 
         .fake-margin{@include conSize(100vw, 100vh, null);}
-        .txt-wrap{@include conSize(100vw, 100vh, null); position:relative;
-            h1{@include font(20vw, 700, $mont, $black); @include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; white-space:nowrap; text-transform:uppercase; letter-spacing:-0.5vw;}
+        .txt-wrap{@include conSize(null, 100vh, null); position:relative;
+            h1{@include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; margin-left:100vw; white-space:nowrap; @include font(20vw, 700, $mont, $black); text-transform:uppercase; letter-spacing:-0.5vw;}
         }
     }
 }
 /*** 섹션07 끝 ***/
+
+.area03{transform-style:preserve-3d; will-change:transform; background:$black;}
+/*** 섹션08 시작 ***/
+.section08{
+    &-inner{@include conSize(null, 100vh, null);
+        .txt-wrap{@include conSize(null, 100%, null); @include dis-flex(center, center, column, null);
+            h1{line-height:1; @include dis-flex(null, null, column, null); @include font(8.5vw, 600, $mont, $basic); text-transform:uppercase; text-align:center; letter-spacing:-0.3vw;}
+            p{@include font(3vw, 600, $mont, $point);}
+        }
+        .info-ul{
+            li{@include dis-flex(null, null, null, null);
+                h1{@include font(6vw, 600, $mont, $basic);}
+            }
+        }
+    }
+}
+/*** 섹션08 끝 ***/

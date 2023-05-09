@@ -447,7 +447,12 @@ header.no-exposure {
 .section02-inner .RL-comm-inner h1 {
   height: auto;
   line-height: 1;
-  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   top: 50%;
   -webkit-transform-style: preserve-3d;
@@ -455,11 +460,15 @@ header.no-exposure {
   will-change: transform;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  white-space: nowrap;
   font-size: 18vw;
   font-weight: 600;
   font-family: "Oswald", sans-serif;
   color: #eee;
   letter-spacing: -0.7vw;
+}
+.section02-inner .RL-comm-inner h1 span {
+  display: block;
 }
 .section02-inner .RL-comm.L-scroll h1 {
   padding: 0 0 1.5vw 0;
@@ -744,7 +753,12 @@ header.no-exposure {
 .section05-inner .RL-comm-inner h1 {
   height: auto;
   line-height: 1;
-  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   top: 50%;
   -webkit-transform-style: preserve-3d;
@@ -752,11 +766,15 @@ header.no-exposure {
   will-change: transform;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  white-space: nowrap;
   font-size: 18vw;
   font-weight: 600;
   font-family: "Oswald", sans-serif;
   color: #eee;
   letter-spacing: -0.7vw;
+}
+.section05-inner .RL-comm-inner h1 span {
+  display: block;
 }
 .section05-inner .RL-comm.L-scroll h1 {
   padding: 0 0 1.5vw 0;
@@ -787,6 +805,8 @@ header.no-exposure {
   height: 100vh;
   position: sticky;
   top: 0;
+  opacity: 0;
+  visibility: hidden;
 }
 .section06 .work-img-container .work-img-wrap {
   width: 100%;
@@ -906,7 +926,7 @@ header.no-exposure {
 /*** 섹션06 끝 ***/
 /*** 섹션07 시작 **/
 .section07 {
-  height: 700vh;
+  height: 1000vh;
   position: relative;
   background: #000;
 }
@@ -915,6 +935,7 @@ header.no-exposure {
   height: 100vh;
   position: sticky;
   top: 0;
+  overflow: hidden;
 }
 .section07 .bg-circle span {
   width: 18vw;
@@ -945,24 +966,87 @@ header.no-exposure {
   height: 100vh;
 }
 .section07-inner .txt-wrap {
-  width: 100vw;
   height: 100vh;
   position: relative;
 }
 .section07-inner .txt-wrap h1 {
-  font-size: 20vw;
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-  color: #000;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   will-change: transform;
+  margin-left: 100vw;
   white-space: nowrap;
+  font-size: 20vw;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
   text-transform: uppercase;
   letter-spacing: -0.5vw;
 }
 
 /*** 섹션07 끝 ***/
+.area03 {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
+  background: #000;
+}
+
+/*** 섹션08 시작 ***/
+.section08-inner {
+  height: 100vh;
+}
+.section08-inner .txt-wrap {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.section08-inner .txt-wrap h1 {
+  line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  font-size: 8.5vw;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: #eee;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.3vw;
+}
+.section08-inner .txt-wrap p {
+  font-size: 3vw;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: #487C20;
+}
+.section08-inner .info-ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.section08-inner .info-ul li h1 {
+  font-size: 6vw;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  color: #eee;
+}
+
+/*** 섹션08 끝 ***/
