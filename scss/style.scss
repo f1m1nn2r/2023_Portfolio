@@ -8,6 +8,7 @@ $black:#000;
 $noto:'Noto Sans KR', sans-serif;
 $ows:'Oswald', sans-serif;
 $mont:'Montserrat', sans-serif;
+.noto{font-family:'Noto Sans KR', sans-serif !important;}
 
 .scroll-hidden::-webkit-scrollbar{display:none;}
 body{padding:55px 0 0 0; overflow-x:hidden; background:$basic;
@@ -22,13 +23,16 @@ a{text-decoration:none; color:$black;}
 @mixin dis-grid($num1:null, $num2:null){display:grid; grid-template-columns:repeat($num1, $num2 + #{fr});}
 @mixin pt-abs($top:null, $rg:null, $bt:null, $lf:null, $zd:null){position:absolute; top:$top; right:$rg; bottom:$bt; left:$lf; z-index:$zd;}
 @mixin font($fs:null, $fw:null, $ff:null, $co:null){font-size:$fs; font-weight:$fw; font-family:$ff; color:$co;}
-@mixin b_txt(){line-height:1; @include font(11.5vw, 700, $ows, null);}
+@mixin b_txt(){line-height:1; @include font(11.5vw, 700, $ows, null);
+    @include breakpoint-basic(){font-size:14vw;}
+}
 @mixin RL-Comm(){@include conSize(null, calc(100vh - 55px), null); overflow:hidden;
     &-inner{@include conSize(null, 100%, null);
         .RL-comm{@include conSize(null, 50%, null); @include dis-flex(null, null, null, null); position:relative; background:$black;
             &-inner{@include conSize(null, 100%, null);
-                h1{@include conSize(null, auto, 1); @include dis-flex(center, null, null, null); @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); white-space:nowrap; @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;
+                h1{@include conSize(null, auto, 1); @include dis-flex(center, null, null, 3vw); @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); white-space:nowrap; @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;
                     span{display:block;}
+                    @include breakpoint-basic(){font-size:18vw;}
                 }
             }
             &.L-scroll{
@@ -43,11 +47,17 @@ a{text-decoration:none; color:$black;}
 
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
+@mixin breakpoint-basic(){
+    @media(max-width:1320px){@content;}
+}
+
 header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all 1s $easing;
     .header_inner{@include conSize(100%, 100%, null); @include dis-flex(center, space-between, null, null);
         & > div{line-height:1;}
         .fir{@include conSize(null, 100%, null); @include dis-flex(null, center, column, null); padding:0 10px 0px 10px; background:$black;
-            p, span{@include font(1.05vw, 500, $ows, #fff);}
+            p, span{@include font(1.05vw, 500, $ows, #fff);
+                @include breakpoint-basic(){font-size:1.5vw;}
+            }
             p{@include dis-flex(center, null, null, null);
                 &:first-child{justify-content:space-between;}
                 &:last-child{align-items:center;   
@@ -59,18 +69,27 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
         }
         .info_comm{
             p, span{@include font(null, 400, $mont, null); letter-spacing:-1px;}
-            span{@include font(0.7vw, null, null, null); color:$point; }
-            p{padding:5px 0 0 0; font-size:0.92vw;}
+            span{@include font(0.7vw, null, null, null); color:$point;
+                @include breakpoint-basic(){font-size:1.3vw;}
+            }
+            p{padding:5px 0 0 0; font-size:0.92vw;
+                @include breakpoint-basic(){font-size:1.5vw;}
+            }
         }
-        .last{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;}
+        .last{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;
+            @include breakpoint-basic(){font-size:1.3vw;}
+        }
     }
     &.load_ani{top:0; transition-delay:1s;}
     &.no-exposure{top:-5vw}
+    @include breakpoint-basic(){height:60px; line-height:60px;}
 }
 
 .footer-section{@include conSize(100%, 55px, 55px); position:fixed; bottom:-5vw; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all 1s $easing;
     .footer-inner{padding:0 0 0 1vw; 
-        .fir{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;}
+        .fir{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;
+            @include breakpoint-basic(){font-size:1.3vw;}
+        }
     }
     &.load_ani{bottom:0; transition-delay:1s;}
     &.no-exposure{bottom:-5vw;}
@@ -107,11 +126,19 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
     }
     .menu-box{@include dis-flex(null, null, column, null); margin:4.6vw 0 0 0;
         li{position:relative; padding:10px 0; counter-increment:li-counter; border-bottom:1px solid $black;
-            a{@include font(1.3vw, 400, $mont, $black); letter-spacing:-1px;}
+            a{@include font(1.3vw, 400, $mont, $black); letter-spacing:-1px;
+                @include breakpoint-basic(){font-size:1.6vw;}
+            }
             &::before{content:counter(li-counter, decimal-leading-zero); margin-right:15px; @include font(1.3vw, 400, inherit, $black); letter-spacing:-1px;}
             &:first-child, &:nth-child(2){@include conSize(calc(100% - 395px), null, null);}
             &:nth-child(3){@include conSize(calc(100% - 385px), null, null);}
             &:last-child{@include conSize(calc(100% - 355px), null, null);}
+            @include breakpoint-basic(){
+                &:first-child{width:calc(100% - 270px)}
+                &:nth-child(2){width:calc(100% - 280px);}
+                &:nth-child(3){width:calc(100% - 278px);}
+                &:last-child{width:calc(100% - 271px);}
+            }
         }
     }
     .right{@include dis-flex(flex-end, null, null, null);
@@ -147,17 +174,21 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
         & > div{flex:1; position:relative; mix-blend-mode:difference; color:$basic;
             .txt-wrap{@include conSize(null, 140vh, null); position:sticky; top:0;
                 .txt-inner{@include conSize(null, 100%, null);
-                    h5{line-height:1.3; @include font(1.5vw, 500, $ows, null);}
+                    h5{line-height:1.3; @include font(1.5vw, 500, $ows, null);
+                        @include breakpoint-basic(){font-size:2.2vw;}
+                    }
                 }
                 &.sc01-txt-wrap__1{margin:0 auto; margin-left:-0.5vw; writing-mode:vertical-lr;
                     .txt-inner{@include conSize(null, calc(100% - 146px), null); @include dis-flex(center, null, null, null); padding:0.3vw 0 0 0; @include font(6vw, 700, $ows, null);
                         .line{@include conSize(0.7vw, null, null); margin:1vw 0.5vw 1vw 0; background:$basic;}
+                        @include breakpoint-basic(){font-size:9vw;}
                     }
                 }
                 &.sc01-txt-wrap__2{@include dis-flex(null, flex-end, null, null); margin-right:11.5vw;
                     .txt-inner{text-transform:uppercase;
                         h1{@include b_txt(); line-height:0.83;}
                     }
+                    @include breakpoint-basic(){margin-right:15vw;}
                 }
                 &.sc01-txt-wrap__3{margin:0 auto; margin-right:0; writing-mode:vertical-lr; 
                     .txt-inner{ @include dis-flex(null, null, null, null); text-transform:uppercase;
@@ -187,22 +218,40 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
         .left-column{
             ul{@include dis-grid(2, 1); row-gap:0.3vw;
                 li{@include dis-flex(flex-start, null, null, null); position:relative; counter-increment:li-counter;
-                    span{@include conSize(10vw, null, null); display:block; @include font(0.84vw, 700, $ows, $black);}
-                    p{@include conSize(calc(100% - 10vw), null, null); @include font(0.84vw, 400, $noto, $black); letter-spacing:-0.5px;}
-                    &::before{content:counter(li-counter, decimal-leading-zero); @include conSize(1.3vw, 1.3vw, 1.3vw); margin:0 0.5vw 0 0; @include font(0.7vw, 500, $ows, $basic); background:$black; border-radius:50%; text-align:center;}
+                    span, p{@include font(0.84vw, null, $noto, $black);
+                        @include breakpoint-basic(){font-size:1.5vw;}
+                    }
+                    span{@include conSize(10vw, null, null); display:block; font-weight:700;
+                        @include breakpoint-basic(){width:18vw; letter-spacing:-0.1vw}
+                    }
+                    p{@include conSize(calc(100% - 10vw), null, null); font-weight:400; letter-spacing:-0.5px;
+                        @include breakpoint-basic(){width:calc(100% - 20.8vw);}
+                    }
+                    &::before{content:counter(li-counter, decimal-leading-zero); @include conSize(1.3vw, 1.3vw, 1.3vw); margin:0 0.5vw 0 0; @include font(0.7vw, 500, $ows, $basic); background:$black; border-radius:50%; text-align:center;
+                        @include breakpoint-basic(){@include conSize(2.8vw, 2.8vw, 2.8vw); font-size:1.3vw;}
+                    }
                 }
+                @include breakpoint-basic(){row-gap:0.6vw;}
             }
         }
         .right-column{
             .circle-wrap{display:-webkit-box;
                 .circle{@include conSize(5vw, 5vw, null); display:-webkit-box; border:1px solid $black; border-radius:50%;
-                    &.tall{@include conSize(12.5vw, null, null); border-radius:3vw;}
+                    &.tall{@include conSize(12.5vw, null, null); border-radius:3vw;
+                        @include breakpoint-basic(){width:15vw; border-radius:5vw}
+                    }
+                    @include breakpoint-basic(){@include conSize(6vw, 6vw, null);}
                 }
+                @include breakpoint-basic(){@include dis-flex(center, flex-end, null, null);}
             }
             .txt-wrap{
-                h1{@include b_txt(); font-size:7.4vw; text-transform:uppercase;}
+                h1{@include b_txt(); font-size:7.4vw; text-transform:uppercase;
+                    @include breakpoint-basic(){font-size:10vw; text-align:right}
+                }
             }
+            @include breakpoint-basic(){width:100%; @include dis-flex(null, flex-end, column, null);}
         }
+        @include breakpoint-basic(){@include dis-flex(flex-start, unll, column, null);}
     }
 }
 /*** 섹션04 끝 ***/
@@ -211,7 +260,9 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
 .section05{@include RL-Comm;
     &-inner{
         .R-scroll{
-            h1{margin-left:-60vw;}
+            h1{margin-left:-60vw;
+                @include breakpoint-basic(){margin-left:-130vw;}
+            }
         }
     }
 }
@@ -228,18 +279,27 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
                 }
             }
         }
+        @include breakpoint-basic(){height:50vh;}
     }
     &-inner{padding:0 0 0 6vw;
         ul{
             li{position:relative; padding:2vw 0; counter-increment:li-counter; @include font(8vw, 300, $noto, $basic); border-bottom:1px solid $basic; //transition:all .3s $easing;
                 a{@include dis-flex(flex-end, flex-end, column, null); @include font(8vw, 300, $noto, $basic);}
-                h1{line-height:1; @include font(8vw, 300, $noto, $basic);}
-                p{margin:2vw 0 0 0; font-size:2vw;}
-                &::before{content:counter(li-counter, decimal-leading-zero); @include pt-abs(50%, null, null, 0, null); transform:translateY(-50%);}
+                h1{line-height:1; @include font(8vw, 300, $noto, $basic);
+                    @include breakpoint-basic(){font-size:10vw;}
+                }
+                p{margin:2vw 0 0 0; font-size:2vw;
+                    @include breakpoint-basic(){font-size:2.6vw;}
+                }
+                &::before{content:counter(li-counter, decimal-leading-zero); @include pt-abs(50%, null, null, 0, null); transform:translateY(-50%);
+                    @include breakpoint-basic(){line-height:1;}
+                }
                 &:last-child{border-bottom:0;}
+                @include breakpoint-basic(){padding:4vw 0; font-size:10vw;}
             }
         }
     }
+    @include breakpoint-basic(){padding:0 0 40vw 0;}
 }
 /*** 섹션06 끝 ***/
 
@@ -251,19 +311,25 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
     &-inner{@include conSize(200vw, null, null); @include dis-flex(center, null, null); position:sticky; top:0; 
         .fake-margin{@include conSize(100vw, 100vh, null);}
         .txt-wrap{@include conSize(null, 100vh, null); position:relative;
-            h1{@include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; margin-left:100vw; white-space:nowrap; @include font(20vw, 700, $mont, $black); text-transform:uppercase; letter-spacing:-0.5vw;}
+            h1{@include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; margin-left:100vw; white-space:nowrap; @include font(20vw, 700, $mont, $black); text-transform:uppercase; letter-spacing:-0.5vw;
+                @include breakpoint-basic(){margin-left:130vw;}
+            }
         }
     }
 }
 /*** 섹션07 끝 ***/
 
-.area03{transform-style:preserve-3d; will-change:transform; background:$black;}
+.area03{@include conSize(100%, 100vh, null); position:absolute; transform-style:preserve-3d; will-change:transform; background:$black;}
 /*** 섹션08 시작 ***/
 .section08{
     &-inner{@include conSize(null, 100vh, null);
         .txt-wrap{@include conSize(null, 100%, null); @include dis-flex(center, center, column, null);
-            h1{line-height:1; @include dis-flex(null, null, column, null); @include font(8.5vw, 600, $mont, $basic); text-transform:uppercase; text-align:center; letter-spacing:-0.3vw;}
-            p{@include font(3vw, 600, $mont, $point);}
+            h1{line-height:1; @include dis-flex(null, null, column, null); @include font(8.5vw, 600, $mont, $basic); text-transform:uppercase; text-align:center; letter-spacing:-0.3vw;
+                @include breakpoint-basic(){font-size:13vw;}
+            }
+            p{@include font(3vw, 600, $mont, $point);
+                @include breakpoint-basic(){margin:1.3vw 0 0 0; font-size:4vw;}
+            }
         }
         .info-ul{
             li{@include dis-flex(null, null, null, null);

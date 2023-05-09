@@ -32,7 +32,7 @@ const fir_txt = document.querySelectorAll('.sc01-txt-wrap__1 p');
 const fir_line = document.querySelector('.sc01-txt-wrap__1 .line');
 var widthSum = 0;
 for(var i=0; i<fir_txt.length; i++){
-    var fir_txt_width = fir_txt[i].clientHeight * 1.65;
+    var fir_txt_width = fir_txt[i].scrollHeight * 1.7;
     widthSum += fir_txt_width;
     fir_line.style.height = `calc(100% - ${widthSum}px)`;
 }
@@ -102,6 +102,7 @@ for(var i=0; i<introText.length; i++){
 
 window.addEventListener('scroll', function(){
     var windowY = window.scrollY;
+    const breakPointBasic = window.matchMedia(`(max-width:1320px)`);
     // 헤더, 풋터 - 전체 스크롤 값이 섹션03의 (스크롤 값+500) 값과 같거나 커질 경우 노출 안 되도록
     const header = document.querySelector('header');
     const footer = document.querySelector('.footer-section');
@@ -184,14 +185,22 @@ window.addEventListener('scroll', function(){
 
         var lastValue = -window.scrollY / (header.offsetHeight/2);
         sc07ScrollTxt.style.transform = `translate3d(${lastValue + 900}vw, 0, 0) translate(-50%, -50%)`;
+
+        if(breakPointBasic.matches === true){
+            bgCircle.style.width = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 2}vw`;
+            bgCircle.style.height = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 2}vw`;
+            sc07ScrollTxt.style.transform = `translate3d(${lastValue + 500}vw, 0, 0) translate(-50%, -50%)`;
+        }
     }
 
     // 섹션08
     /*
     const last_area = document.querySelector('.area03');
-    const section08 = document.querySelector('.section08');
-    if(windowY >= last_area.offsetTop / 1.2){
-        section08.style.transform = `translate3d(0, -${window.scrollY / sc07ScrollTxt.offsetHeight}vw, 0)`
+    const parallaxWrap = document.querySelector('.section08');
+    if(last_area.getBoundingClientRect().top < window.innerHeight / 2){
+        last_area.style.transform = `translate3d(0, -${(window.scrollY / sc07ScrollTxt.offsetHeight) + 168}vw, 0)`
     }
     */
+    
+    //mediaViewContent.addEventListener("change", viewChangeHandler);
 });
