@@ -9,7 +9,10 @@ $noto:'Noto Sans KR', sans-serif;
 $ows:'Oswald', sans-serif;
 $mont:'Montserrat', sans-serif;
 
-body{padding:55px 0 0 0; overflow-x:hidden; background:$basic;}
+.scroll-hidden::-webkit-scrollbar{display:none;}
+body{padding:55px 0 0 0; overflow-x:hidden; background:$basic;
+    &.no-scroll{overflow-y:hidden !important;}
+}
 *{margin:0; padding:0; box-sizing:border-box;}
 ul, ol{list-style:none;}
 a{text-decoration:none; color:$black;}
@@ -22,12 +25,14 @@ a{text-decoration:none; color:$black;}
 @mixin b_txt(){line-height:1; @include font(11.5vw, 700, $ows, null);}
 @mixin RL-Comm(){@include conSize(null, calc(100vh - 55px), null); overflow:hidden;
     &-inner{@include conSize(null, 100%, null);
-        .RL-comm{@include conSize(null, 50%, null); @include dis-flex(null, null, null, null); position:relative;
-            h1{line-height:1; white-space:nowrap; @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;}
+        .RL-comm{@include conSize(null, 50%, null); @include dis-flex(null, null, null, null); position:relative; background:$black;
+            &-inner{@include conSize(null, 100%, null);
+                h1{@include conSize(null, auto, 1); white-space:nowrap; @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;}
+            }
             &.L-scroll{
                 h1{padding:0 0 1.5vw 0; background:$black; color:$point;}
             }
-            &.R-scroll{
+            &.R-scroll{background:$basic;
                 h1{transform:translateY(-50%) scale(-1); padding:0 0 1vw 0; -webkit-text-stroke:1px $black;}
             }
         }
@@ -36,7 +41,7 @@ a{text-decoration:none; color:$black;}
 
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
-header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all .5s $easing;
+header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all 1s $easing;
     .header_inner{@include conSize(100%, 100%, null); @include dis-flex(center, space-between, null, null);
         & > div{line-height:1;}
         .fir{@include conSize(null, 100%, null); @include dis-flex(null, center, column, null); padding:0 10px 0px 10px; background:$black;
@@ -57,13 +62,15 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
         }
         .last{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;}
     }
+    &.load_ani{top:0; transition-delay:1s;}
     &.no-exposure{top:-5vw}
 }
 
-.footer-section{@include conSize(100%, 55px, 55px); position:fixed; bottom:0; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all .5s $easing;
-    .footer-inner{padding:0 0 0 1vw;
+.footer-section{@include conSize(100%, 55px, 55px); position:fixed; bottom:-5vw; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all 1s $easing;
+    .footer-inner{padding:0 0 0 1vw; 
         .fir{@include font(0.85vw, 400, $mont, $black); letter-spacing:-1px;}
     }
+    &.load_ani{bottom:0; transition-delay:1s;}
     &.no-exposure{bottom:-5vw;}
 }
 
@@ -83,12 +90,18 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
 }
 /*** 섹션01 시작 ***/
 .section01{height:calc(100vh - 110px); @include dis-flex(null, null, null, null); position:relative; padding:1vw 1.5vw 1vw 1.5vw;
-    .circle{@include conSize(40.366vw, 40.366vw, null); @include dis-flex(center, center, null, null); position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:$black; border-radius:50%;
+    .circle{@include conSize(40.366vw, 40.366vw, null); @include dis-flex(center, center, null, null); position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background:$black; border-radius:50%; 
         span{@include conSize(0.81vw, 0.81vw, null); display:block; background:#fff; border-radius:50%;}
     }
     .sc01_div{@include conSize(48vw, null, null); /*flex:1;*/}
     .sc01_comm{
-        h1{line-height:0.9; @include dis-flex(null, null, null, null); mix-blend-mode:difference; @include font(9.688vw, bold, $ows, #fff);}
+        h1{line-height:0.9; @include dis-flex(null, null, null, null); overflow:hidden; mix-blend-mode:difference; @include font(9.688vw, bold, $ows, #fff);
+            span{display:block; transform:translateY(100%); transition:all .9s $easing;
+                @for $i from 0 to 11{
+                    &:nth-child(#{$i}){transition-delay:.5s * ($i/10)}
+                }
+            }
+        }
     }
     .menu-box{@include dis-flex(null, null, column, null); margin:4.6vw 0 0 0;
         li{position:relative; padding:10px 0; counter-increment:li-counter; border-bottom:1px solid $black;
@@ -102,11 +115,18 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
     .right{@include dis-flex(flex-end, null, null, null);
         h1{transform:scale(-1);}
     }
+    &.load_ani{
+        .sc01_comm{
+            h1{
+                span{transform:translateY(0);}
+            }
+        }
+    }
 }
 /*** 섹션01 끝 ***/
 
 /*** 섹션02 시작 ***/
-.section02{@include RL-Comm(); height:150vh;
+.section02{@include RL-Comm(); height:150vh; transform:translateY(10%); transition:transform .5s $easing;
     &-inner{
         .RL-comm{
             &.R-scroll{
@@ -114,6 +134,7 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
             }
         }
     }
+    &.load_ani{transform:translateY(0); transition-delay:1.2s;}
 }
 /*** 섹션02 끝 ***/
 
@@ -195,11 +216,14 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
 /*** 섹션05 끝 ***/
 
 /*** 섹션06 시작 ***/
-.section06{position:relative; padding:30vw 0 0 0; background:$black;
+.section06{position:relative; padding:0 0 60vw 0; background:$black;
     .work-img-container{@include conSize(null, 100vh, null); position:sticky; top:0;
-        .work-img-wrap{@include conSize(100%, 100%, null); position:relative; display:-webkit-box;
-            .work-img-slide{@include conSize(33.3%, null, null);
-                img{@include conSize(100%, 100%, null); object-fit:contain;}
+        .work-img-wrap{@include conSize(100%, 100%, null); @include dis-flex(center, center, null, null); position:relative;
+            .work-img-slide{@include conSize(100%, 100%, null); @include pt-abs(null, null, null, null, null); filter:brightness(.3);
+                img{@include conSize(100%, 100%, null); object-fit:cover;}
+                @for $i from 0 to 11{
+                    &:nth-child(#{$i}){z-index:$i}
+                }
             }
         }
     }
@@ -210,8 +234,23 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:0; z-index:99; ba
                 h1{line-height:1; @include font(8vw, 300, $noto, $basic);}
                 p{margin:2vw 0 0 0; font-size:2vw;}
                 &::before{content:counter(li-counter, decimal-leading-zero); @include pt-abs(50%, null, null, 0, null); transform:translateY(-50%);}
+                &:last-child{border-bottom:0;}
             }
         }
     }
 }
 /*** 섹션06 끝 ***/
+
+/*** 섹션07 시작 **/
+.section07{@include conSize(null, 700vh, null); position:relative; background:$black;
+    .bg-circle{@include conSize(100%, 100vh, null); position:sticky; top:0;
+        span{@include conSize(18vw, 18vw, null); @include pt-abs(50%, null, null, 50%, null); transform:translate(-50%, -50%); background:$point; border-radius:50%; transition:all .3s linear;}
+    }
+    &-inner{@include conSize(200vw, null, null); @include dis-flex(center, null, null); position:sticky; top:0; 
+        .fake-margin{@include conSize(100vw, 100vh, null);}
+        .txt-wrap{@include conSize(100vw, 100vh, null); position:relative;
+            h1{@include font(20vw, 700, $mont, $black); @include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; white-space:nowrap; text-transform:uppercase; letter-spacing:-0.5vw;}
+        }
+    }
+}
+/*** 섹션07 끝 ***/
