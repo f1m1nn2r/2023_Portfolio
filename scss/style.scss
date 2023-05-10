@@ -217,9 +217,9 @@ header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99;
 /*** 섹션04 시작 ***/
 .section04{padding:1.5vw 3vw; background:$point; border-top:1px solid $black;
     &-inner{@include dis-flex(center, space-between, null, null);
-        .left-column{
-            ul{@include dis-grid(2, 1); row-gap:0.3vw;
-                li{@include dis-flex(flex-start, null, null, null); position:relative; counter-increment:li-counter;
+        .left-column{flex:1; @include dis-flex(null, null, null, 3vw);
+            ul{@include conSize(100%, null, null); display:block;
+                li{@include dis-flex(flex-start, null, null, null); position:relative; margin:0 0 0.3vw 0; counter-increment:li-counter;
                     span, p{@include font(0.84vw, null, $noto, $black);
                         @include breakpoint-basic(){font-size:1.5vw;}
                     }
@@ -232,11 +232,12 @@ header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99;
                     &::before{content:counter(li-counter, decimal-leading-zero); @include conSize(1.3vw, 1.3vw, 1.3vw); margin:0 0.5vw 0 0; @include font(0.7vw, 500, $ows, $basic); background:$black; border-radius:50%; text-align:center;
                         @include breakpoint-basic(){@include conSize(2.8vw, 2.8vw, 2.8vw); font-size:1.3vw;}
                     }
+                    &:last-child{margin:0;}
                 }
                 @include breakpoint-basic(){row-gap:0.6vw;}
             }
         }
-        .right-column{
+        .right-column{flex:1; @include dis-flex(flex-end, null, column, null);
             .circle-wrap{display:-webkit-box;
                 .circle{@include conSize(5vw, 5vw, null); display:-webkit-box; border:1px solid $black; border-radius:50%;
                     &.tall{@include conSize(12.5vw, null, null); border-radius:3vw;

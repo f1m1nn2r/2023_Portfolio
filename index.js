@@ -135,7 +135,7 @@ window.addEventListener('scroll', () => {
     // 섹션03
     const circle = document.querySelector('.float');
     const circle_exposure = document.querySelector('.line-circle-exposure');
-    var circleValue = (window.scrollY / 100) - 10;
+    var circleValue = (window.scrollY / 100) - 5;
     // +500은 섹션02 넘어갈 때 height 값을 100vh로 설정하는 sticky 클래스 때문인지 스크롤 동작이 제대로 안 돼서 추가함
     if(window.scrollY >= section03.offsetTop + 500){
         circle.classList.add('sticky'); // sticky 클래스 추가
