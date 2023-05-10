@@ -34,8 +34,9 @@ var widthSum = 0;
 for(var i=0; i<fir_txt.length; i++){
     var fir_txt_width = fir_txt[i].scrollHeight * 1.7;
     widthSum += fir_txt_width;
-    fir_line.style.height = `calc(100% - ${widthSum}px)`;
 }
+fir_line.style.height = `calc(100% - ${widthSum}px)`;
+
 const section03_txt = document.querySelectorAll('.section03 .txt-wrap');
 var sc03HeightSum = 0;
 for(var i=0; i<section03_txt.length; i++){
@@ -80,6 +81,7 @@ for(var i=0; i<section07_child.length; i++){
     childWidthSum += section07_child[i].scrollWidth;
 }
 section07_inner.style.width = childWidthSum + 'px';
+section07.style.height = childWidthSum + 'px';
 
 // 윈도우 로드 완료되면
 const section01 = document.querySelector('.section01');
@@ -110,7 +112,7 @@ setInterval(() => {
 
 // 스크롤 이벤트
 window.addEventListener('scroll', () => {
-    const breakPointBasic = window.matchMedia(`(max-width:1320px)`);
+    var breakPointBasic = window.matchMedia(`(max-width:1320px)`);
 
     // 헤더, 풋터 - 전체 스크롤 값이 섹션03의 (스크롤 값+500) 값과 같거나 커질 경우 노출 안 되도록
     const header = document.querySelector('header');
@@ -126,9 +128,9 @@ window.addEventListener('scroll', () => {
     // 섹션02 - 스크롤 시 텍스트 좌 우 이동
     for(var i=0; i<sc02_RLScroll_comm.length; i++){
         if(i % 2 == 0){ // 짝수번 째 텍스트는 translate3d x축 -로
-            sc02_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY / sc02_RLScroll_comm[i].clientHeight * 2}vw, 0, 0) translateY(-50%)`
+            sc02_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY / sc02_RLScroll_comm[i].clientHeight * 2}vw, 0, 0) translateY(-50%)`;
         }else if(i % 2 == 1){ // 홀수번 째 텍스트는 translate3d x축 +로
-            sc02_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY / sc02_RLScroll_comm[i].clientHeight * 2}vw, 0, 0) translateY(-50%) scale(-1)`
+            sc02_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY / sc02_RLScroll_comm[i].clientHeight * 2}vw, 0, 0) translateY(-50%) scale(-1)`;
         }
     }
 
@@ -151,15 +153,15 @@ window.addEventListener('scroll', () => {
     for(var i=0; i<sc05_RLScroll_comm.length; i++){
         if(window.scrollY >= section05.offsetTop / 1.3){
             if(i % 2 == 0){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%)`;
             }else if(i % 2 == 1){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%) scale(-1)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%) scale(-1)`;
             }
         }else{
             if(i % 2 == 0){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%)`;
             }else if(i % 2 == 1){
-                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%) scale(-1)`
+                sc05_RLScroll_comm_txt[i].style.transform = `translate3d(-${window.scrollY * 2 / sc05_RLScroll_comm_txt[i].clientHeight - 10}vw, 0, 0) translateY(-50%) scale(-1)`;
             }
         }
     }
@@ -201,15 +203,4 @@ window.addEventListener('scroll', () => {
             sc07ScrollTxt.style.transform = `translate3d(${lastValue + 500}vw, 0, 0) translate(-50%, -50%)`;
         }
     }
-
-    // 섹션08
-    /*
-    const last_area = document.querySelector('.area03');
-    const parallaxWrap = document.querySelector('.section08');
-    if(last_area.getBoundingClientRect().top < window.innerHeight / 2){
-        last_area.style.transform = `translate3d(0, -${(window.scrollY / sc07ScrollTxt.offsetHeight) + 168}vw, 0)`
-    }
-    */
-    
-    //mediaViewContent.addEventListener("change", viewChangeHandler);
 });
