@@ -11,12 +11,12 @@
 }
 
 body {
-  padding: 55px 0 0 0;
+  padding: 60px 0 0 0;
   overflow-x: hidden;
   background: #eee;
 }
 body.no-scroll {
-  overflow-y: hidden !important;
+  overflow: hidden !important;
 }
 
 * {
@@ -37,8 +37,8 @@ a {
 
 header {
   width: 100%;
-  height: 55px;
-  line-height: 55px;
+  height: 60px;
+  line-height: 60px;
   position: fixed;
   top: -5vw;
   z-index: 99;
@@ -282,6 +282,9 @@ header.no-exposure {
 }
 .area01 .circle-wrap.float .line-circle-wrap .line-circle-exposure {
   z-index: -1;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
   background: #eee;
 }
 .area01 .circle-wrap.float.sticky {
@@ -431,14 +434,17 @@ header.no-exposure {
   color: #000;
   letter-spacing: -1px;
 }
-.section01 .menu-box li:first-child, .section01 .menu-box li:nth-child(2) {
-  width: calc(100% - 395px);
+.section01 .menu-box li:first-child {
+  width: calc(100% - 515px);
+}
+.section01 .menu-box li:nth-child(2) {
+  width: calc(100% - 505px);
 }
 .section01 .menu-box li:nth-child(3) {
-  width: calc(100% - 385px);
+  width: calc(100% - 485px);
 }
 .section01 .menu-box li:last-child {
-  width: calc(100% - 355px);
+  width: calc(100% - 465px);
 }
 @media (max-width: 1320px) {
   .section01 .menu-box li:first-child {
@@ -1199,7 +1205,7 @@ header.no-exposure {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   will-change: transform;
-  margin-left: 100vw;
+  margin-left: 80vw;
   white-space: nowrap;
   font-size: 20vw;
   font-weight: 700;

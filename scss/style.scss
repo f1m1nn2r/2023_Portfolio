@@ -11,8 +11,8 @@ $mont:'Montserrat', sans-serif;
 .noto{font-family:'Noto Sans KR', sans-serif !important;}
 
 .scroll-hidden::-webkit-scrollbar{display:none;}
-body{padding:55px 0 0 0; overflow-x:hidden; background:$basic;
-    &.no-scroll{overflow-y:hidden !important;}
+body{padding:60px 0 0 0; overflow-x:hidden; background:$basic;
+    &.no-scroll{overflow:hidden !important;}
 }
 *{margin:0; padding:0; box-sizing:border-box;}
 ul, ol{list-style:none;}
@@ -51,7 +51,7 @@ $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
     @media(max-width:1320px){@content;}
 }
 
-header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all 1s $easing;
+header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99; background:$basic; border:1px solid $black; border-left:0; border-right:0; transition:all 1s $easing;
     .header_inner{@include conSize(100%, 100%, null); @include dis-flex(center, space-between, null, null);
         & > div{line-height:1;}
         .fir{@include conSize(null, 100%, null); @include dis-flex(null, center, column, null); padding:0 10px 0px 10px; background:$black;
@@ -104,7 +104,7 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
             & > div{@include conSize(100%, 100%, null); @include pt-abs(0, null, null, 0, null);} 
             .line-circle-basic{opacity:.15; background:url(./img/Ellipse6.svg) center no-repeat; background-size:80%; }
             .line-circle-overlay{opacity:1; mix-blend-mode:overlay; background:url(./img/Ellipse6.svg) center no-repeat; background-size:80%;}
-            .line-circle-exposure{z-index:-1; background:$basic}
+            .line-circle-exposure{z-index:-1; transform-style:preserve-3d; will-change:transform; background:$basic;}
         }
         &.sticky{height:100vh; top:0; opacity:1; visibility:visible;}
     }
@@ -130,9 +130,10 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
                 @include breakpoint-basic(){font-size:1.6vw;}
             }
             &::before{content:counter(li-counter, decimal-leading-zero); margin-right:15px; @include font(1.3vw, 400, inherit, $black); letter-spacing:-1px;}
-            &:first-child, &:nth-child(2){@include conSize(calc(100% - 395px), null, null);}
-            &:nth-child(3){@include conSize(calc(100% - 385px), null, null);}
-            &:last-child{@include conSize(calc(100% - 355px), null, null);}
+            &:first-child{@include conSize(calc(100% - 515px), null, null)}
+            &:nth-child(2){@include conSize(calc(100% - 505px), null, null)}
+            &:nth-child(3){@include conSize(calc(100% - 485px), null, null);}
+            &:last-child{@include conSize(calc(100% - 465px), null, null);}
             @include breakpoint-basic(){
                 &:first-child{width:calc(100% - 270px)}
                 &:nth-child(2){width:calc(100% - 280px);}
@@ -311,7 +312,7 @@ header{@include conSize(100%, 55px, 55px); position:fixed; top:-5vw; z-index:99;
     &-inner{@include conSize(200vw, null, null); @include dis-flex(center, null, null); position:sticky; top:0; 
         .fake-margin{@include conSize(100vw, 100vh, null);}
         .txt-wrap{@include conSize(null, 100vh, null); position:relative;
-            h1{@include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; margin-left:100vw; white-space:nowrap; @include font(20vw, 700, $mont, $black); text-transform:uppercase; letter-spacing:-0.5vw;
+            h1{@include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; margin-left:80vw; white-space:nowrap; @include font(20vw, 700, $mont, $black); text-transform:uppercase; letter-spacing:-0.5vw;
                 @include breakpoint-basic(){margin-left:130vw;}
             }
         }

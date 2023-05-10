@@ -20,7 +20,7 @@ const section02 = document.querySelector('.section02');
 const sc02_RLScroll_comm = document.querySelectorAll('.section02 .RL-comm'); 
 const sc02_RLScroll_comm_txt = document.querySelectorAll('.section02 .RL-comm h1'); 
 var heightSum = 0;
-for (var i = 0; i < sc02_RLScroll_comm.length; i++) { 
+for(var i = 0; i < sc02_RLScroll_comm.length; i++) { 
     sc02_RLScroll_comm[i].style.height = sc02_RLScroll_comm_txt[i].scrollHeight + 'px'; // RL-comm의 height 값이 h1의 높이값과 동일하도록
     heightSum += sc02_RLScroll_comm_txt[i].scrollHeight;
 }
@@ -92,17 +92,26 @@ window.onload = function(){
     header.classList.add('load_ani');
     footer.classList.add('load_ani');
     section02.classList.add('load_ani');
-    setTimeout(function(){
+    setTimeout(() => {
         document.body.classList.remove('no-scroll');
-    }, 1200);
+    }, 1200)
 }
 for(var i=0; i<introText.length; i++){
     introText[i].style.height = (introTextSpan[i].getBoundingClientRect().height) + 'px';
 }
 
-window.addEventListener('scroll', function(){
-    var windowY = window.scrollY;
+// 풋터 현재 날짜, 시간
+setInterval(() => {
+    var today = new Date();
+    var this_time = today.toLocaleString();
+    const footer_date = document.querySelector('.footer-section .fir p');
+    footer_date.innerHTML = this_time;
+}, 1000);
+
+// 스크롤 이벤트
+window.addEventListener('scroll', () => {
     const breakPointBasic = window.matchMedia(`(max-width:1320px)`);
+
     // 헤더, 풋터 - 전체 스크롤 값이 섹션03의 (스크롤 값+500) 값과 같거나 커질 경우 노출 안 되도록
     const header = document.querySelector('header');
     const footer = document.querySelector('.footer-section');
@@ -126,7 +135,7 @@ window.addEventListener('scroll', function(){
     // 섹션03
     const circle = document.querySelector('.float');
     const circle_exposure = document.querySelector('.line-circle-exposure');
-    var circleValue = (windowY / 100) - 16;
+    var circleValue = (window.scrollY / 100) - 36;
     // +500은 섹션02 넘어갈 때 height 값을 100vh로 설정하는 sticky 클래스 때문인지 스크롤 동작이 제대로 안 돼서 추가함
     if(window.scrollY >= section03.offsetTop + 500){
         circle.classList.add('sticky'); // sticky 클래스 추가
@@ -179,7 +188,7 @@ window.addEventListener('scroll', function(){
     bgCircle.style.height = '10vw';
 
     const sc07ScrollTxt = document.querySelector('.section07 .txt-wrap h1');
-    if(windowY >= section07.offsetTop + 300){
+    if(window.scrollY >= section07.offsetTop + 300){
         bgCircle.style.width = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 3}vw`;
         bgCircle.style.height = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 3}vw`;
 
