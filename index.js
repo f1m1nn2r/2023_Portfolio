@@ -184,7 +184,7 @@ window.addEventListener('scroll', function(){
         bgCircle.style.height = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 3}vw`;
 
         var lastValue = -window.scrollY / (header.offsetHeight/2);
-        sc07ScrollTxt.style.transform = `translate3d(${lastValue + 900}vw, 0, 0) translate(-50%, -50%)`;
+        sc07ScrollTxt.style.transform = `translate3d(${lastValue + 700}vw, 0, 0) translate(-50%, -50%)`;
 
         if(breakPointBasic.matches === true){
             bgCircle.style.width = `${(window.scrollY / header.offsetHeight + footer.offsetHeight) / 2}vw`;
