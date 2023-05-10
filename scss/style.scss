@@ -30,7 +30,7 @@ a{text-decoration:none; color:$black;}
     &-inner{@include conSize(null, 100%, null);
         .RL-comm{@include conSize(null, 50%, null); @include dis-flex(null, null, null, null); position:relative; background:$black;
             &-inner{@include conSize(null, 100%, null);
-                h1{@include conSize(null, auto, 1); @include dis-flex(center, null, null, 3vw); @include pt-abs(50%, null, null, null, null); transform-style:preserve-3d; will-change:transform; transform:translateY(-50%); white-space:nowrap; @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;
+                h1{@include conSize(null, auto, 1); @include dis-flex(center, null, null, 3vw); @include pt-abs(50%, null, null, null, null); @include willChange; transform:translateY(-50%); white-space:nowrap; @include font(18vw, 600, $ows, $basic); letter-spacing:-0.7vw;
                     span{display:block;}
                     @include breakpoint-basic(){font-size:18vw;}
                 }
@@ -44,6 +44,7 @@ a{text-decoration:none; color:$black;}
         }
     }
 }
+@mixin willChange(){transform-style:preserve-3d; will-change:transform;}
 
 $easing:cubic-bezier(0.215, 0.61, 0.355, 1);
 
@@ -104,7 +105,7 @@ header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99;
             & > div{@include conSize(100%, 100%, null); @include pt-abs(0, null, null, 0, null);} 
             .line-circle-basic{opacity:.15; background:url(./img/Ellipse6.svg) center no-repeat; background-size:80%; }
             .line-circle-overlay{opacity:1; mix-blend-mode:overlay; background:url(./img/Ellipse6.svg) center no-repeat; background-size:80%;}
-            .line-circle-exposure{z-index:-1; transform-style:preserve-3d; will-change:transform; background:$basic;}
+            .line-circle-exposure{z-index:-1; @include willChange; background:$basic;}
         }
         &.sticky{height:100vh; top:0; opacity:1; visibility:visible;}
     }
@@ -117,7 +118,7 @@ header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99;
     .sc01_div{@include conSize(48vw, null, null); /*flex:1;*/}
     .sc01_comm{
         h1{line-height:0.9; @include dis-flex(null, null, null, null); overflow:hidden; mix-blend-mode:difference; @include font(9.688vw, bold, $ows, #fff);
-            span{display:block; transform:translateY(100%); transition:all .9s $easing;
+            span{display:block; transform:translateY(100%); @include willChange; transition:all .9s $easing;
                 @for $i from 0 to 11{
                     &:nth-child(#{$i}){transition-delay:.5s * ($i/10)}
                 }
@@ -130,10 +131,10 @@ header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99;
                 @include breakpoint-basic(){font-size:1.6vw;}
             }
             &::before{content:counter(li-counter, decimal-leading-zero); margin-right:15px; @include font(1.3vw, 400, inherit, $black); letter-spacing:-1px;}
-            &:first-child{@include conSize(calc(100% - 515px), null, null)}
-            &:nth-child(2){@include conSize(calc(100% - 505px), null, null)}
-            &:nth-child(3){@include conSize(calc(100% - 485px), null, null);}
-            &:last-child{@include conSize(calc(100% - 465px), null, null);}
+            &:first-child{@include conSize(calc(100% - 385px), null, null)}
+            &:nth-child(2){@include conSize(calc(100% - 375px), null, null)}
+            &:nth-child(3){@include conSize(calc(100% - 360px), null, null);}
+            &:last-child{@include conSize(calc(100% - 335px), null, null);}
             @include breakpoint-basic(){
                 &:first-child{width:calc(100% - 270px)}
                 &:nth-child(2){width:calc(100% - 280px);}
@@ -312,7 +313,7 @@ header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99;
     &-inner{@include conSize(200vw, null, null); @include dis-flex(center, null, null); position:sticky; top:0; 
         .fake-margin{@include conSize(100vw, 100vh, null);}
         .txt-wrap{@include conSize(null, 100vh, null); position:relative;
-            h1{@include pt-abs(50%, null, null, 50%, null); transform-style:preserve-3d; will-change:transform; margin-left:80vw; white-space:nowrap; @include font(20vw, 700, $mont, $black); text-transform:uppercase; letter-spacing:-0.5vw;
+            h1{@include pt-abs(50%, null, null, 50%, null); @include willChange; margin-left:80vw; white-space:nowrap; @include font(20vw, 700, $mont, $black); text-transform:uppercase; letter-spacing:-0.5vw;
                 @include breakpoint-basic(){margin-left:130vw;}
             }
         }
@@ -320,7 +321,7 @@ header{@include conSize(100%, 60px, 60px); position:fixed; top:-5vw; z-index:99;
 }
 /*** 섹션07 끝 ***/
 
-.area03{@include conSize(100%, 100vh, null); position:absolute; transform-style:preserve-3d; will-change:transform; background:$black;}
+.area03{@include conSize(100%, 100vh, null); position:absolute; @include willChange; background:$black;}
 /*** 섹션08 시작 ***/
 .section08{
     &-inner{@include conSize(null, 100vh, null);
